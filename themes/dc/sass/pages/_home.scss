@@ -1,0 +1,60 @@
+.home {
+    .hero {
+
+        .container-fluid {
+            padding: 0;
+            margin-left: 5%;
+        }
+
+        h2 {
+            font-weight: $font-thin;
+            letter-spacing: 0.05em;
+            color: #fff;
+        }
+    }
+
+    .home_parka {
+        .container-fluid {
+            padding: 0;
+        }
+
+        .parka_content {
+            align-self: center;
+        }
+    }
+
+    .home_jackets_vests {
+        background: $light_gray;
+        text-align: center;
+
+        .item {
+            padding: 0 1px;
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            h3 {
+                position: absolute;
+                bottom: 40px;
+                left: 40px;
+                color: $white;
+                font-weight: $font-regular;
+                font-size: 26px;
+                @include side_line;
+            }
+        }
+    }
+
+    .home_history {
+        @include bg_img;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        
+        .item {
+            flex: 0 1 50%;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+html, body {
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
+    -webkit-overflow-scrolling: touch;
+  
+    overflow-x: hidden;
+    // always show the vertical scrollbar so that content doesn't jump
+    overflow-y: scroll;
+  
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+    text-size-adjust: 100%;
+}

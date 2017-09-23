@@ -1,0 +1,6 @@
+.hero {
+    @include bg-img();
+    height: auto;
+    min-height: 800px;
+    display: flex;
+}

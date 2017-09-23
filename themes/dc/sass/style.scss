@@ -42,8 +42,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@import "variables/variables";
+@import "mixins/mixins";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -51,9 +51,24 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @import "normalize";
 
 /*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "default/default.scss";
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 @import "typography/typography";
+
+/*--------------------------------------------------------------
+# Template
+--------------------------------------------------------------*/
+@import "templ/templ";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "pages/pages";
 
 /*--------------------------------------------------------------
 # Grid
@@ -64,11 +79,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Elements
 --------------------------------------------------------------*/
 @import "elements/elements";
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-@import "forms/forms";
 
 /*--------------------------------------------------------------
 # Navigation
@@ -91,16 +101,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@import "site/site";
-
-/*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
 @import "modules/infinite-scroll";
@@ -109,3 +109,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+
+header {
+	position: fixed;
+}

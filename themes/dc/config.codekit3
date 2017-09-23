@@ -146,6 +146,24 @@
 		"oAP": "\/LICENSE",
 		"oF": 0
 		},
+	"\/page-history.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-history.php",
+		"oF": 0
+		},
+	"\/page-home.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-home.php",
+		"oF": 0
+		},
+	"\/page-product.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-product.php",
+		"oF": 0
+		},
 	"\/page.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -205,6 +223,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/sass\/default\/_default.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/sass\/default\/_default.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/sass\/elements\/_elements.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -244,45 +275,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/forms\/_buttons.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/forms\/_buttons.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/sass\/forms\/_fields.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/forms\/_fields.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/sass\/forms\/_forms.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/forms\/_forms.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/sass\/grid\/grid.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -292,32 +284,6 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/sass\/grid\/grid.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/sass\/layout\/_content-sidebar.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/layout\/_content-sidebar.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/sass\/layout\/_sidebar-content.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/layout\/_sidebar-content.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -361,7 +327,7 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/mixins\/_mixins-master.scss": {
+	"\/sass\/mixins\/_mixins.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -369,7 +335,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/mixins\/_mixins-master.css",
+		"oAP": "\/sass\/mixins\/_mixins.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -426,19 +392,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/navigation\/_links.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/navigation\/_links.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/sass\/navigation\/_menus.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -465,7 +418,7 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/site\/_site.scss": {
+	"\/sass\/pages\/_history.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -473,12 +426,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/site\/_site.css",
+		"oAP": "\/sass\/pages\/_history.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/site\/primary\/_comments.scss": {
+	"\/sass\/pages\/_home.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -486,12 +439,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/site\/primary\/_comments.css",
+		"oAP": "\/sass\/pages\/_home.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/site\/primary\/_posts-and-pages.scss": {
+	"\/sass\/pages\/_pages.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -499,20 +452,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/site\/primary\/_posts-and-pages.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/sass\/site\/secondary\/_widgets.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/sass\/site\/secondary\/_widgets.css",
+		"oAP": "\/sass\/pages\/_pages.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -526,11 +466,11 @@
 		"ma": 1,
 		"oA": 0,
 		"oAP": "\/style.css",
-		"oF": 2,
+		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/typography\/_copy.scss": {
+	"\/sass\/templ\/_footer.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -538,7 +478,33 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/typography\/_copy.css",
+		"oAP": "\/sass\/templ\/_footer.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/templ\/_hero.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/sass\/templ\/_hero.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/templ\/_templ.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/sass\/templ\/_templ.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -569,7 +535,7 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/variables-site\/_colors.scss": {
+	"\/sass\/variables\/_colors.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -577,12 +543,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/variables-site\/_colors.css",
+		"oAP": "\/sass\/variables\/_colors.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/variables-site\/_structure.scss": {
+	"\/sass\/variables\/_structure.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -590,12 +556,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/variables-site\/_structure.css",
+		"oAP": "\/sass\/variables\/_structure.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/variables-site\/_typography.scss": {
+	"\/sass\/variables\/_typography.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -603,12 +569,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/variables-site\/_typography.css",
+		"oAP": "\/sass\/variables\/_typography.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/variables-site\/_variables-site.scss": {
+	"\/sass\/variables\/_variables.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -616,7 +582,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/sass\/variables-site\/_variables-site.css",
+		"oAP": "\/sass\/variables\/_variables.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -639,6 +605,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/sidebar.php",
+		"oF": 0
+		},
+	"\/single-product.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/single-product.php",
 		"oF": 0
 		},
 	"\/single.php": {
