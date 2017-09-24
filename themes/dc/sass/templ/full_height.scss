@@ -1,0 +1,20 @@
+.full_height {
+    @include ratio;
+    @include bg-img;
+
+    align-items: center;
+    display: flex;
+
+    .container {
+        flex: 1;
+    }
+
+    .row {
+        flex-direction: row-reverse;
+        text-align: left;
+
+        .col {
+            @include grid-offset-left(6.5);
+        }
+    }
+}

@@ -8,16 +8,20 @@ h1 {
 	font-size: 80px;
 	font-weight: $font-thin;
 	line-height: 1.1;
+
+	@include responsive-font(36, 80);
 }
 
 h2 {
 	font-size: 40px;
 	font-weight: $font-extra-light;
 	color: $dark-blue;
+	@include responsive-font(28, 40);
 }
 
 p {
 	font-size: 18px;
 	color: $text-color;
 	font-weight: $font-light;
+	letter-spacing: 0.01em;
 }
