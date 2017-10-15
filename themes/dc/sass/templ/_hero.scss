@@ -1,9 +1,10 @@
 .hero {
     @include bg-img();
     height: auto;
-    min-height: 800px;
+    min-height: 470px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 40px;
 
     .row {
         width: 100%;
@@ -12,5 +13,13 @@
     h1, h2 {
         margin: 0;
         color: #fff;
+    }
+}
+
+@include viewport (tablet) {
+    .hero {
+        align-items: center;
+        min-height: 800px;
+        padding: 0;
     }
 }

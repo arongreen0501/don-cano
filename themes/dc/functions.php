@@ -44,7 +44,8 @@ if ( ! function_exists( 'dc_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'dc' ),
+			'left' => esc_html__( 'Primary-left', 'dc' ),
+			'right' => esc_html__( 'Primary-right', 'dc' ),
 		) );
 
 		/*
@@ -189,6 +190,21 @@ add_filter( 'post_type_link', 'dc_remove_cpt_slug', 10, 3 );
 }
 add_action( 'pre_get_posts', 'dc_parse_request_trick' );
 
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyDUHUjQmZM37DQjqDK-45nd4VsdE1Ry_8E');
+}
+
+add_action('acf/init', 'my_acf_init');
+
+
+function dc_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+  }
+  add_filter('upload_mimes', 'dc_mime_types');
+
 /**
  * Enqueue scripts and styles.
  */
@@ -196,11 +212,21 @@ function dc_scripts() {
 
 	wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500' );
 
+	wp_enqueue_style( 'dc-owl-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css' );
+
+	wp_enqueue_style( 'dc-owl-carousel-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css' );
+
 	wp_enqueue_style( 'dc-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'lazy_load', 'https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js', '', '', false );
 
+	wp_enqueue_script( 'dc-owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js', '', '', true );
+
+	// wp_enqueue_script( 'google_maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHUjQmZM37DQjqDK-45nd4VsdE1Ry_8E', '', '', false );
+
 	wp_enqueue_script( 'dc-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'dc-google-maps', get_template_directory_uri() . '/js/google-maps.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'dc-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

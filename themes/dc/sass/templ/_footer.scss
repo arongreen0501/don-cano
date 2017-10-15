@@ -1,20 +1,42 @@
 #footer {
-    padding: 60px 0 100px 0;
+    padding: 80px 0 100px 0;
     display: flex;
     align-items: center;
     background: $white;
+
+    @include viewport (handset) {
+        padding-bottom: 40px;
+    }
 
     .container {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
         margin: 0;
+        flex-direction: column;
+
+        @include viewport (handset) {
+            flex-direction: column-reverse;
+        }
+
+        @include viewport (tablet) {
+            flex-direction: row;
+        }
 
         p {
             font-size: 15px;
             color: #6e6e6e;
             line-height: 1.7;
             margin: 0;
+        }
+
+        img {
+            width: auto;
+            max-width: none;
+
+            @include viewport (handset) {
+                margin-top: 60px;
+            }
         }
 
         .footer_title {
@@ -29,11 +51,26 @@
         .footer_content {
             display: flex;
             flex-wrap: wrap;
-            margin-left: 70px;
+            margin-top: 30px;
 
             .footer_info:last-of-type {
                 margin-left: 25px;
             }
+
+            @include viewport (tablet) {
+                margin-left: 70px;
+                margin-top: 0;
+            }
+
+            @include viewport (handset) {
+                flex-direction: column;
+
+                .footer_info, .footer_info:last-of-type {
+                    margin-left: 0;
+                    margin-top: 20px;
+                }
+            }
         }
     }
 }
+

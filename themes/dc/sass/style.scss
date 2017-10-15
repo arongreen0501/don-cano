@@ -45,6 +45,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @import "variables/variables";
 @import "mixins/mixins";
 @import "grid/gridd";
+@import "reset/reset";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -62,11 +63,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @import "typography/typography";
 
 /*--------------------------------------------------------------
-# Reset
---------------------------------------------------------------*/
-@import "reset/reset";
-
-/*--------------------------------------------------------------
 # Template
 --------------------------------------------------------------*/
 @import "templ/templ";
@@ -80,8 +76,3 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Navigation
 --------------------------------------------------------------*/
 @import "navigation/navigation";
-
-
-header {
-	position: fixed;
-}

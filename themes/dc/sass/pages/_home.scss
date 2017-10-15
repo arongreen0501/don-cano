@@ -1,12 +1,79 @@
 .home {
-    .hero {
+    .carousel {
         .row {
             width: 100%;
-        } 
-
+        }
+    
+        h1, h2 {
+            margin: 0;
+            color: #fff;
+        }
+    
         h2 {
             font-weight: $font-thin;
             letter-spacing: 0.05em;
+        }
+        
+        .owl-carousel {
+            position: relative;
+            height: 100%;
+    
+            div:not(.owl-controls) {
+                height: 100%;
+            }
+    
+            .owl-item {
+                img {
+                    width: auto;
+                }
+    
+                > div {
+                    width: 100%;
+                    padding-bottom: 40px;
+                    display: flex;
+                    align-items: flex-end;
+                    min-height: 470px;
+                }
+            }
+
+            .owl-nav {
+                .arrow {
+                    border: 0;
+                    width: 25px;
+                    height: 25px;
+                    opacity: .4;
+                    transition: .15s ease-in-out;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+                .owl-next, .owl-prev {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .owl-next {
+                    right: 50px;
+
+                    .arrow {
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+                .owl-prev {
+                    left: 30px;
+
+                    .arrow {
+                        border-left: 2px solid #fff;
+                        border-top: 2px solid #fff;
+                    }
+                }
+            }
+        }
+    
+        .owl-item {
+            @include bg-img;
         }
     }
 
@@ -15,8 +82,12 @@
             padding: 0;
         }
 
+        .col-6 {
+            @include grid-col(12);
+        }
+
         .parka_content {
-            align-self: center;
+            padding: 20px 0;
         }
     }
 
@@ -52,6 +123,52 @@
     }
 
     .home_jackets_vests {
-        padding: 100px 0;
+        padding-top: 90px;
+        padding-bottom: 150px;
+
+        h2 {
+            padding-bottom: 90px;
+        }
+    }
+}
+
+@include viewport (tablet) {
+    .home {
+        .carousel {
+            .owl-carousel {
+                .owl-item {
+                    > div {
+                        padding-bottom: 0;
+                        align-items: center;
+                        min-height: 800px;
+                    }
+                }
+            }
+        }
+
+        .home_parka {
+            .col-6 {
+                @include grid-col(6);
+
+                align-self: center;
+            }
+        }
+    }
+}
+
+@include viewport (handset) {
+    .home {
+        .home_jackets_vests {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            
+            .item {
+                @include grid-col(12);
+            }
+    
+            h2 {
+                padding-bottom: 20px;
+            }
+        }
     }
 }

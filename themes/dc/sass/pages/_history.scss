@@ -3,9 +3,37 @@
         align-items: flex-end;
         justify-content: center;
         text-align: center;
+        padding-bottom: 40px;
+
+        h2 {
+            font-size: 26px;
+            margin-top: 10px;
+            font-weight: $font-regular;
+        }
+    }
+
+    .history_teaser, .history_final {
+        text-align: center;
+        padding-top: 40px;
+
+        p {
+            color: #606060;
+            font-size: 20px;
+            font-weight: $font-extra-light;
+        }
     }
 
     .content {
+        h3 {
+            font-size: 26px;
+            font-weight: $font-regular;
+        }
+
+        h4 {
+            font-size: 22px;
+            font-weight: $font-regular;
+        }
+
         .content_block {
             position: relative;
 
@@ -28,9 +56,12 @@
                     position: relative;
 
                     img {
-                        position: absolute;
-                        
-                        @include centerer;
+                        @include viewport (tablet) {
+                            position: absolute;
+                            z-index: 1;
+                            
+                            @include centerer;
+                        }
                     }
                 }
             }
@@ -49,9 +80,16 @@
         }
 
         .full_height {
+            padding: 20px 0;
+
             h3, p {
                 color: $white;
                 font-weight: $font-extra-light;
+            }
+
+            img {
+                height: 100%;
+                object-fit: cover;
             }
 
             h3 {
@@ -63,6 +101,52 @@
 
             p {
                 line-height: 1.7;
+            }
+        }
+    }
+}
+
+@include viewport (tablet) {
+    .history {
+        .history_teaser, .history_final {
+            text-align: center;
+            padding-top: 120px;
+            padding-bottom: 50px;
+
+            p {
+                font-size: 26px;
+            }
+        }
+
+        .hero {
+            padding-bottom: 100px;
+        }
+
+        .content {
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@include viewport (tabletMax) {
+    .history {
+        .history_final {
+            @include grid-offset-left(1);
+            @include grid-offset-right(1);
+        }
+
+        .content {
+            .full_height {
+
+                img {
+                    height: auto;
+                }
+
+                h3, p {
+                    color: $text-color;
+                }
             }
         }
     }

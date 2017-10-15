@@ -70,3 +70,35 @@
     max-width: 100%;
     height: auto;
   }
+
+.link {
+  @include reset-anchor;
+  position: relative;
+  font-weight: $font-regular;
+  color: $text_color;
+  font-size: 15px;
+
+  .link_text {
+    margin-left: 20px;
+  }
+}
+
+
+.arrow {
+  border-right: 2px solid #3387bf;
+  border-bottom: 2px solid #3387bf;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  transform: translateY(-50%) rotate(-45deg);
+  top: 50%;
+  left: 0;
+}
+
+#page {
+  overflow: hidden;
+}
+
+.disable_scroll {
+  overflow: hidden;
+}

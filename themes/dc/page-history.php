@@ -30,7 +30,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="offset-left-1 offset-right-1">
+					<div class="offset-left-1 offset-right-1 history_teaser">
 						<p><?php the_field('teaser_description') ?></p>
 					</div>
 				</div>
@@ -68,7 +68,8 @@
 							
 						<?php $full_height_image = get_sub_field('full_height_image'); ?>
 
-							<div class="full_height" style="background-image: url(<?php echo $full_height_image['url']; ?>)">
+							<div class="full_height">
+								<img src="<?php echo $full_height_image['url']; ?>" alt="">
 								<div class="container">
 									<div class="row">
 										<div class="col">
@@ -99,6 +100,14 @@
 					<?php endif; ?>
 
 				<?php endwhile; endif; ?>
+
+				<div class="container">
+					<div class="row">
+						<div class="offset-left-2 offset-right-2 history_final">
+							<p><?php the_field('final_description') ?></p>
+						</div>
+					</div>
+				</div>
 		
 		</section>
 

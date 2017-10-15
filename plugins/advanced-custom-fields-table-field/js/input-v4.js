@@ -93,6 +93,11 @@ jQuery( document ).ready(function( $ ){
 			ajax: false,
 		};
 
+		t.state = {
+			'current_cell_obj': false,
+			'cell_editor_cell': false
+		};
+
 		t.init = function() {
 
 			t.init_workflow();
@@ -106,6 +111,7 @@ jQuery( document ).ready(function( $ ){
 			t.table_add_row_event();
 			t.table_remove_row();
 			t.cell_editor();
+			t.cell_editor_tab_navigation();
 			t.prevent_cell_links();
 			t.sortable_row();
 			t.sortable_col();
@@ -125,7 +131,7 @@ jQuery( document ).ready(function( $ ){
 
 		t.ui_event_change_location_rule = function() {
 
-			$( 'body' ).on( 'change', '[name="post_category[]"], [name="post_format"], [name="page_template"], [name="parent_id"], [name="role"], [name^="tax_input"]', function() {
+			t.obj.body.on( 'change', '[name="post_category[]"], [name="post_format"], [name="page_template"], [name="parent_id"], [name="role"], [name^="tax_input"]', function() {
 
 				var interval = setInterval( function() {
 
@@ -200,7 +206,7 @@ jQuery( document ).ready(function( $ ){
 
 			// HEADER: SELECT FIELD ACTIONS {
 
-				$( 'body' ).on( 'change', '.acf-table-fc-opt-use-header', function() {
+				t.obj.body.on( 'change', '.acf-table-fc-opt-use-header', function() {
 
 					var that = $( this ),
 						p = {};
@@ -234,12 +240,13 @@ jQuery( document ).ready(function( $ ){
 
 		t.ui_event_new_flex_field = function() {
 
-			$( 'body' ).on( 'click', '.acf-fc-popup', function() {
+			t.obj.body.on( 'click', '.acf-fc-popup', function() {
 
 				// SORTABLE {
 
-					$( '.acf-table-table' ).sortable('destroy');
-					$( '.acf-table-table' ).unbind();
+					$( '.acf-table-table' )
+						.sortable('destroy')
+						.unbind();
 
 					window.setTimeout( function() {
 
@@ -504,7 +511,7 @@ jQuery( document ).ready(function( $ ){
 
 		t.table_add_col_event = function() {
 
-			$( 'body' ).on( 'click', '.acf-table-add-col', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-add-col', function( e ) {
 
 				e.preventDefault();
 
@@ -549,7 +556,7 @@ jQuery( document ).ready(function( $ ){
 
 		t.table_remove_col = function() {
 
-			$( 'body' ).on( 'click', '.acf-table-remove-col', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-remove-col', function( e ) {
 
 				e.preventDefault();
 
@@ -603,7 +610,7 @@ jQuery( document ).ready(function( $ ){
 
 		t.table_add_row_event = function() {
 
-			$( 'body' ).on( 'click', '.acf-table-add-row', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-add-row', function( e ) {
 
 				e.preventDefault();
 
@@ -653,7 +660,7 @@ jQuery( document ).ready(function( $ ){
 
 		t.table_remove_row = function() {
 
-			$( 'body' ).on( 'click', '.acf-table-remove-row', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-remove-row', function( e ) {
 
 				e.preventDefault();
 
@@ -823,32 +830,129 @@ jQuery( document ).ready(function( $ ){
 
 		t.cell_editor = function() {
 
-			$( 'body' ).on( 'click', '.acf-table-body-cell, .acf-table-header-cell', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-body-cell, .acf-table-header-cell', function( e ) {
 
 				e.stopImmediatePropagation();
 
 				t.cell_editor_save();
 
-				var that = $( this ),
-					that_val = that.find( '.acf-table-body-cont, .acf-table-header-cont' ).html();
+				var that = $( this );
 
-				that.prepend( t.param.htmleditor ).find( '.acf-table-cell-editor-textarea' ).html( that_val ).focus();
+				t.cell_editor_add_editor({
+					'that': that
+				});
+
 			} );
 
-			$( 'body' ).on( 'click', '.acf-table-cell-editor-textarea', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-cell-editor-textarea', function( e ) {
 
 				e.stopImmediatePropagation();
 			} );
 
-			$( 'body' ).on( 'click', function( e ) {
+			t.obj.body.on( 'click', function( e ) {
 
 				t.cell_editor_save();
 			} );
 		};
 
+		t.cell_editor_add_editor = function( p ) {
+
+			var defaults = {
+				'that': false
+			};
+
+			p = $.extend( true, defaults, p );
+
+			if ( p['that'] ) {
+
+				var that_val = p['that'].find( '.acf-table-body-cont, .acf-table-header-cont' ).html();
+
+				t.state.current_cell_obj = p['that'];
+				t.state.cell_editor_is_open = true;
+
+				p['that'].prepend( t.param.htmleditor ).find( '.acf-table-cell-editor-textarea' ).html( that_val ).focus();
+			}
+		};
+
+		t.get_next_table_cell = function( p ) {
+
+			var defaults = {
+				'key': false
+			};
+
+			p = $.extend( true, defaults, p );
+
+			// next cell of current row
+			var next_cell = t.state.current_cell_obj
+								.next( '.acf-table-body-cell, .acf-table-header-cell' );
+
+			// else if get next row
+			if ( next_cell.length === 0 ) {
+
+				next_cell = t.state.current_cell_obj
+					.parent()
+					.next( '.acf-table-body-row' )
+					.find( '.acf-table-body-cell')
+					.first();
+			}
+
+			// if next row, get first cell of that row
+			if ( next_cell.length !== 0 ) {
+
+				t.state.current_cell_obj = next_cell;
+			}
+			else {
+
+				t.state.current_cell_obj = false;
+			}
+		};
+
+		t.get_prev_table_cell = function( p ) {
+
+			var defaults = {
+				'key': false
+			};
+
+			p = $.extend( true, defaults, p );
+
+			// prev cell of current row
+			var table_obj = t.state.current_cell_obj.closest( '.acf-table-table' ),
+				no_header = table_obj.hasClass( 'acf-table-hide-header' );
+				prev_cell = t.state.current_cell_obj
+								.prev( '.acf-table-body-cell, .acf-table-header-cell' );
+
+			// else if get prev row
+			if ( prev_cell.length === 0 ) {
+
+				var row_selectors = [ '.acf-table-body-row' ];
+
+				// prevents going to header cell if table header is hidden
+				if ( no_header === false ) {
+
+					row_selectors.push( '.acf-table-header-row' );
+				}
+
+				prev_cell = t.state.current_cell_obj
+					.parent()
+					.prev( row_selectors.join( ',' ) )
+					.find( '.acf-table-body-cell, .acf-table-header-cell' )
+					.last();
+			}
+
+			// if next row, get first cell of that row
+			if ( prev_cell.length !== 0 ) {
+
+				t.state.current_cell_obj = prev_cell;
+			}
+			else {
+
+				t.state.current_cell_obj = false;
+			}
+		};
+
 		t.cell_editor_save = function() {
 
-			var cell_editor = $( 'body' ).find( '.acf-table-cell-editor' ),
+			var cell_editor = t.obj.body.find( '.acf-table-cell-editor' ),
 				cell_editor_textarea = cell_editor.find( '.acf-table-cell-editor-textarea' ),
 				p = {},
 				cell_editor_val = '';
@@ -869,15 +973,48 @@ jQuery( document ).ready(function( $ ){
 				t.table_build_json( p );
 
 				cell_editor.remove();
+				t.state.cell_editor_is_open = false;
 
 				p.obj_root.find( '.acf-table-remove-col' ).show(),
 				p.obj_root.find( '.acf-table-remove-row' ).show();
 			}
 		};
 
+		t.cell_editor_tab_navigation = function() {
+
+			t.obj.body.on( 'keydown', '.acf-table-cell-editor', function( e ) {
+
+				var keyCode = e.keyCode || e.which;
+
+				if ( keyCode == 9 ) {
+
+					e.preventDefault();
+
+					t.cell_editor_save();
+
+					if ( t.state.cell_editor_last_keycode === 16 ) {
+
+						t.get_prev_table_cell();
+
+					}
+					else {
+
+						t.get_next_table_cell();
+					}
+
+					t.cell_editor_add_editor({
+						'that': t.state.current_cell_obj
+					});
+				}
+
+				t.state.cell_editor_last_keycode = keyCode;
+
+			});
+		};
+
 		t.prevent_cell_links = function() {
 
-			$( 'body' ).on( 'click', '.acf-table-body-cont a, .acf-table-header-cont a', function( e ) {
+			t.obj.body.on( 'click', '.acf-table-body-cont a, .acf-table-header-cont a', function( e ) {
 
 				e.preventDefault();
 			} );
@@ -887,7 +1024,9 @@ jQuery( document ).ready(function( $ ){
 
 			ui.children().each( function() {
 
-				$( this ).width( $( this ).width() );
+				var that = $( this );
+
+				that.width( that.width() );
 
 			} );
 
@@ -949,10 +1088,11 @@ jQuery( document ).ready(function( $ ){
 
 			$( '.acf-table-top-row' ).sortable( param );
 
-			$( 'body' ).on( 'click', '.acf-fc-popup', function() {
+			t.obj.body.on( 'click', '.acf-fc-popup', function() {
 
-				$( '.acf-table-top-row' ).sortable('destroy');
-				$( '.acf-table-top-row' ).unbind();
+				$( '.acf-table-top-row' )
+					.sortable('destroy')
+					.unbind();
 
 				window.setTimeout( function() {
 

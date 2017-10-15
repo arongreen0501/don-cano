@@ -1,9 +1,36 @@
+.blur-up {
+    filter: blur(10px);
+    transition: filter 400ms, -webkit-filter 400ms;
+    transition-delay: 1s;
+}
+
+.blur-up.lazyloaded {
+    filter: blur(0);
+}
+
+.fade-box .lazyload,
+.fade-box .lazyloading {
+   opacity: 0;
+   transition: opacity 400ms;
+}
+
+.fade-box img.lazyloaded {
+   opacity: 1;
+}
+
 .full_height {
     @include ratio;
-    @include bg-img;
-
+    
+    height: auto;
+    max-height: 1000px;
     align-items: center;
     display: flex;
+    position: relative;
+
+    img {
+        position: absolute;
+        width: 100%;
+    }
 
     .container {
         flex: 1;
@@ -17,4 +44,35 @@
             @include grid-offset-left(6.5);
         }
     }
+}
+
+@include viewport (tablet) {
+    .full_height {
+        .row {
+            .col {
+                @include grid-offset-left(6.5);
+            }
+        }
+    }
+}
+
+@include viewport (tabletMax) {
+    .full_height {
+        display: block;
+        
+        img {
+            top: 0;
+        }
+
+        .row {
+            flex-direction: row;
+            text-align: left;
+    
+            .col {
+                margin: 0;
+                @include grid-col(12);
+            }
+        }
+    }
+    
 }

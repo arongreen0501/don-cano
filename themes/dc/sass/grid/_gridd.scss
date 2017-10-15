@@ -98,6 +98,16 @@
     @include grid-offset-right(1);
   }
 
+  .offset-left-2 {
+    @include grid-offset-left(2);
+  }
+
   .offset-right-2 {
     @include grid-offset-right(2);
+  }
+
+  @include viewport (handset) {
+    .col-6 {
+      @include grid-col(12);
+    }
   }

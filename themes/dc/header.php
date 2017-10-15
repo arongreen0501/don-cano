@@ -22,34 +22,47 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
+	<div class="nav_icon">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+	<?php
+		$logo_white = get_field('logo_white', 'option');
+		$logo_black = get_field('logo_black', 'option');
+	?>
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+	<div class="mobile_header">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img class="mobile_logo" src="<?php echo $logo_white['url']; ?>" alt="Home" /></a>
+	</div>
+	<header class="header">
+		<div class="container">
+			<nav id="nav">
+				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Primary Menu', 'dc' ); ?></button> -->
+				<?php
+					wp_nav_menu( array(
+						'theme_location' => 'left',
+						'menu_class' => 'nav-menu',
+					) );
+				?>
+				<?php 
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'dc' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
+					if( !empty($logo_white) && !empty($logo_black) ): ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="menu_logo">
+							<img class="logo_white" src="<?php echo $logo_white['url']; ?>" alt="Home" />
+							<img class="logo_black" src="<?php echo $logo_black['url']; ?>" alt="Home" />
+						</a>
+
+				<?php endif; ?>
+				<?php
+					wp_nav_menu( array(
+						'theme_location' => 'right',
+						'menu_class' => 'nav-menu',
+					) );
+				?>
+			</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
