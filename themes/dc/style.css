@@ -463,7 +463,6 @@ p {
 
 .full_height {
   height: auto;
-  max-height: 1000px;
   align-items: center;
   display: flex;
   position: relative; }
@@ -798,6 +797,22 @@ p {
   background-size: cover;
   background-position: 50% 50%; }
 
+.home .home_parka h2 {
+  font-size: 30px;
+  font-size: calc(30px * var(--scale-multiplier)); }
+  @media (min-width: 420px) {
+    .home .home_parka h2 {
+      font-size: 30px;
+      font-size: calc((0.0198019802 * 100vw + (21.6831683168px)) * var(--scale-multiplier)); } }
+  @media (min-width: 1430px) {
+    .home .home_parka h2 {
+      font-size: 50px;
+      font-size: calc(50px * var(--scale-multiplier)); } }
+
+.home .home_parka p {
+  width: 100%;
+  max-width: 500px; }
+
 .home .home_parka .container-fluid {
   padding: 0; }
 
@@ -827,18 +842,7 @@ p {
       left: 40px;
       margin: 0;
       color: #fff;
-      font-weight: 400;
-      font-size: 26px;
-      font-size: 18px;
-      font-size: calc(18px * var(--scale-multiplier)); }
-      @media (min-width: 420px) {
-        .home .home_jackets_vests .item h3, .home .other_products_content .item h3 {
-          font-size: 18px;
-          font-size: calc((0.0079207921 * 100vw + (14.6732673267px)) * var(--scale-multiplier)); } }
-      @media (min-width: 1430px) {
-        .home .home_jackets_vests .item h3, .home .other_products_content .item h3 {
-          font-size: 26px;
-          font-size: calc(26px * var(--scale-multiplier)); } }
+      font-weight: 400; }
       .home .home_jackets_vests .item h3:before, .home .other_products_content .item h3:before {
         content: "";
         position: absolute;
@@ -848,6 +852,18 @@ p {
         top: 50%;
         left: -10px;
         transform: translateY(-50%); }
+
+.home .other_products_content .item h3 {
+  font-size: 22px;
+  font-size: calc(22px * var(--scale-multiplier)); }
+  @media (min-width: 420px) {
+    .home .other_products_content .item h3 {
+      font-size: 22px;
+      font-size: calc((0.0079207921 * 100vw + (18.6732673267px)) * var(--scale-multiplier)); } }
+  @media (min-width: 1430px) {
+    .home .other_products_content .item h3 {
+      font-size: 30px;
+      font-size: calc(30px * var(--scale-multiplier)); } }
 
 .home .home_jackets_vests {
   padding-top: 90px;
@@ -988,6 +1004,9 @@ p {
     position: absolute;
     right: -100px;
     bottom: 0; }
+  .single_hero h1 span {
+    font-size: 30px;
+    font-weight: 400; }
   .single_hero h2 {
     font-size: 30px;
     font-weight: 300;
@@ -1014,13 +1033,17 @@ p {
     width: 100%; }
   .single_product .product_info .info_img {
     align-self: flex-end !important; }
+  .single_product .product_info .info_type {
+    font-size: 16px;
+    font-weight: 400; }
   .single_product .product_info .price_size {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     border-top: 1px solid #d3d4d6;
     border-bottom: 1px solid #d3d4d6;
-    padding-bottom: 30px; }
+    padding-bottom: 30px;
+    margin-top: 20px; }
     .single_product .product_info .price_size .price p span {
       display: block;
       font-size: 32px;
@@ -1079,15 +1102,15 @@ p {
 
 .single_product .location {
   position: relative; }
-  .single_product .location .location_details {
+  .single_product .location iframe {
+    display: none;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    left: 70%;
+    top: 0; }
+  .single_product .location .location_details {
     background: #36415a;
     color: #fff;
-    padding: 30px; }
+    padding: 30px;
+    z-index: 1; }
     .single_product .location .location_details .location_logo, .single_product .location .location_details .location_place {
       text-align: center; }
       .single_product .location .location_details .location_logo p, .single_product .location .location_details .location_place p {
@@ -1100,7 +1123,8 @@ p {
       .single_product .location .location_details .location_logo img, .single_product .location .location_details .location_place img {
         display: unset; }
     .single_product .location .location_details .location_other {
-      display: flex; }
+      display: flex;
+      justify-content: space-around; }
     .single_product .location .location_details ul {
       padding: 0; }
       .single_product .location .location_details ul:first-of-type {
@@ -1123,8 +1147,22 @@ p {
         color: #c3c3c3; }
 
 @media only screen and (min-width: 720px) {
+  .single_product .location {
+    height: 656px; }
+    .single_product .location iframe {
+      display: block; }
+    .single_product .location .location_details {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 70%; } }
+
+@media only screen and (min-width: 1080px) {
   .single_hero img {
     right: 0; }
+  .single_product .product_info .info_description {
+    padding-top: 70px; }
   .single_product .product_info .col-6 {
     flex: none;
     align-self: stretch;
@@ -1134,7 +1172,9 @@ p {
   .single_product .product_info .price_size .info_table {
     width: 65%; }
   .single_product .product_info .product_details {
-    padding-bottom: 100px; } }
+    padding-bottom: 100px; }
+    .single_product .product_info .product_details .item p {
+      margin: 130px 0; } }
 
 /*--------------------------------------------------------------
 # Navigation

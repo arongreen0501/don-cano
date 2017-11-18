@@ -24,7 +24,7 @@ get_header(); ?>
                 <div class="row">
                     <div class="offset-left-1 offset-right-1">
 
-                        <h1><?php the_field('hero_title'); ?></h1>
+                        <h1><?php the_field('hero_title'); ?><span>- <?php the_field('hero_product_number'); ?></span></h1>
                         <h2><?php the_field('hero_description'); ?></h2>
 
                     </div>
@@ -44,8 +44,10 @@ get_header(); ?>
                             <img class="lazyload" data-src="<?php echo $info_image['url']; ?>" alt="" /> 
                         </div>
                         <div class="col-6">
-                            <p><?php the_field('info_description') ?></p>
-                            <strong><?php the_field('info_type') ?></strong>
+                            <div class="info_description">
+                                <p><?php the_field('info_description') ?></p>
+                            </div>
+                            <strong class="info_type"><?php the_field('info_type') ?></strong>
                             <div class="price_size">
                                 <div class="price">
                                     <p>Price: <span><?php the_field('info_price') ?> kr.</span></p>
@@ -160,7 +162,7 @@ get_header(); ?>
                                     
                                 ?>
 
-                                <p>Where can I buy this item?</p>
+                                <a href="#location"><p>Where can I buy this item?</p></a>
                             </div>
                         </div>
                     </div>
@@ -196,7 +198,7 @@ get_header(); ?>
                         </div>
                     </div>
             </section>
-            <section class="location">
+            <section id="location" class="location">
                 <div id="map"></div>
                 <div class="location_details">
                 
@@ -228,7 +230,7 @@ get_header(); ?>
 			    <?php endif; ?>
 
                 </div>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHUjQmZM37DQjqDK-45nd4VsdE1Ry_8E&callback=initMap"></script>
+                <iframe src="https://snazzymaps.com/embed/27677" width="100%" height="600px" style="border:none;"></iframe>
             </section>
 
 		<?php endwhile; endif; // End of the loop. ?>
@@ -236,10 +238,10 @@ get_header(); ?>
 	</div><!-- #primary -->
 
     <style>
-       #map {
+       /* #map {
         height: 565px;
         width: 100%;
-       }
+       } */
     </style>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUHUjQmZM37DQjqDK-45nd4VsdE1Ry_8E" async defer></script> -->
 

@@ -11,9 +11,9 @@
 
 ?>
 
-	</div><!-- #content -->
+	</main><!-- #content -->
 
-	<footer id="footer">
+	<footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 		<div class="container">
 
 			<?php 

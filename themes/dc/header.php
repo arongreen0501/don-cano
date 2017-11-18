@@ -20,8 +20,8 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+<main id="page" class="site" role="main">
 	<div class="nav_icon">
 		<span></span>
 		<span></span>
@@ -36,9 +36,9 @@
 	<div class="mobile_header">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img class="mobile_logo" src="<?php echo $logo_white['url']; ?>" alt="Home" /></a>
 	</div>
-	<header class="header">
+	<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 		<div class="container">
-			<nav id="nav">
+			<nav id="nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Primary Menu', 'dc' ); ?></button> -->
 				<?php
 					wp_nav_menu( array(
