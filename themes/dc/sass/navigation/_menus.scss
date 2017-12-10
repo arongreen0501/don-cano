@@ -1,3 +1,25 @@
+.social {
+	position: relative;
+	height: 0;
+	width: 100%;
+	max-width: 1430px;
+	display: flex;
+	z-index: 2;
+	justify-content: flex-end;
+
+	.social-icon {
+		margin-left: 15px;
+		position: relative;
+		top: 12px;
+	} 
+}
+
+.sticky {
+	.social {
+		display: none;
+	}
+}
+
 .mobile_header {
 	display: block;
 	position: absolute;
@@ -6,7 +28,8 @@
 	transform: translateX(-50%);
 	z-index: 998;
 
-	img {
+	svg path {
+		fill: #fff;
 		width: auto;
 		max-width: 90%;
 		margin: 0 auto;
@@ -14,16 +37,20 @@
 }
 
 .header {
-	width: 70%;
+	width: 80%;
 	height: 100%;
 	z-index: 998;
 	position: fixed;
-	transition: all 0.2s ease-in-out;
+	transition: all 0.35s ease-in-out;
 	background: $white;
 	transform: translateX(-100%);
-	opacity: 0;
+	// opacity: 0;
 	padding-top: 60px;
 	will-change: transform;
+
+	@media screen and (max-width: 840px) {
+		overflow-y: scroll;
+	}
 
 	nav {
 		padding-bottom: 30px;
@@ -35,7 +62,44 @@
 	}
 
 	.menu_logo {
-		display: none;
+		position: absolute;
+		top: 20px;
+		right: 0;
+		
+		svg {
+			width: 75px;
+			height: auto;
+
+			path {
+				fill: #000;
+			}
+		}
+	}
+
+	// .menu_logo {
+	// 	display: flex;
+	// }
+	.social {
+		svg {
+			path, circle {
+				transition: .2s ease-in-out;
+			}
+
+			&:hover {
+				path {
+					fill: #cecece;
+				}
+	
+				circle {
+					stroke: #cecece;
+				}
+			}
+		}
+	}
+	svg {
+		path {
+			fill: #fff;
+		}
 	}
 
 	.nav-menu {
@@ -73,6 +137,7 @@
 				padding: 15px 0 20px 15px;
 
 				li {
+					font-size: 13px;
 					color: $dark_blue;
 					padding-top: 20px;
 
@@ -132,8 +197,18 @@
 		}
 	
 		.menu_logo {
-			margin: 0 80px;
-			display: block;
+			position: static;
+			margin: 0 75px;
+			display: flex;
+			width: auto;
+
+			svg {
+				width: auto;
+
+				path {
+					fill: #fff;
+				}
+			}
 	
 			.logo_black {
 				display: none;
@@ -151,6 +226,29 @@
 				a:first-of-type {
 					opacity: 1;
 				}
+			}
+
+			> li:after {
+				transition: .3s ease-in-out;
+				opacity: 0;
+				content: "";
+				position: absolute;
+				width: 80px;
+				height: 3px;
+				bottom: -32px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: #cecece;
+			}
+
+			> li:hover {
+				&:after {
+					opacity: 1;
+				} 
+			}
+
+			.current-menu-item:after, .current-menu-parent:after {
+				opacity: 1;
 			}
 	
 			li {
@@ -176,6 +274,8 @@
 					transition: .2s cubic-bezier(0.26, 1.04, 0.54, 1);
 					transition-delay: .05s;
 
+					@include bx-shadow;
+
 					li {
 						transition-delay: 0.2s;
 						transition: .4s cubic-bezier(0.26, 1.04, 0.54, 1);
@@ -187,6 +287,25 @@
 
 						&:nth-child(2) {
 							transition-delay: 0.2s;
+						}
+
+						&:nth-child(3) {
+							transition-delay: 0.25s;
+						}
+
+						&:nth-child(4) {
+							transition-delay: 0.3s;
+						}
+
+						&:nth-child(5) {
+							transition-delay: 0.35s;
+						}
+
+						a {
+							@include underline;
+							overflow: hidden;
+							position: relative;
+							padding-bottom: 6px;
 						}
 					}
 	
@@ -220,25 +339,34 @@
 	.sticky {
 		position: fixed;
 		background: #fff;
-		box-shadow: 0 2px 0 2px rgba(0,0,0,.025), 0 0 0 1px rgba(0,0,0,.05);
+		@include bx-shadow;
 	
 		nav {
 			height: 100px;
 			border: 0;
 	
 		}
-	
-		.menu_logo {
-			display: block;
-			
-			.logo_black {
-				display: block;
-			}
-	
-			.logo_white {
-				display: none;
-			}
+
+		.logo path {
+			fill: #000;
 		}
+
+		.menu_logo svg path {
+			fill: #000;
+		}
+	
+		// .menu_logo {
+		// 	display: block;
+		// 	fill: #000;
+			
+		// 	.logo_black {
+		// 		display: block;
+		// 	}
+	
+		// 	.logo_white {
+		// 		display: none;
+		// 	}
+		// }
 	
 		.nav-menu {
 			li {

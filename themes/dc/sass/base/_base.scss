@@ -1,104 +1,124 @@
 @-ms-viewport {
     width: device-width;
-  }
-  
-  @-o-viewport {
+}
+
+@-o-viewport {
     width: device-width;
-  }
-  
-  @viewport {
+}
+
+@viewport {
     width: device-width;
-  }
-  
-  :root {
+}
+
+:root {
     --scale-multiplier: $scale;
-  
+
     // 805px is start of 15" Mac Book Pro range
     @media (max-height: 805px) and (min-aspect-ratio: 16/10) {
-      --scale-multiplier: $scale-md;
+        --scale-multiplier: $scale-md;
     }
-  
+
     // 650px is start of 13" Mac Book Pro with dock at bottom range
     @media (max-height: 650px) and (min-aspect-ratio: 16/10) {
-      --scale-multiplier: $scale-sm;
+        --scale-multiplier: $scale-sm;
     }
-  }
-  
-  html,
-  body {
+}
+
+html,
+body {
     min-height: 100vh;
-  
+
     background: $white;
-  }
-  
-  html {
+}
+
+html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  
+
     -webkit-overflow-scrolling: touch;
-  
+
     overflow-x: hidden;
     // always show the vertical scrollbar so that content doesn't jump
     overflow-y: scroll;
-  
+
     box-sizing: border-box;
-  }
-  
-  // inherited from <html>
-  *,
-  *::before,
-  *::after {
+}
+
+// inherited from <html>
+*,
+*::before,
+*::after {
     box-sizing: inherit;
-  }
-  
-  body {
+}
+
+body {
     position: relative;
-  
+
     margin: 0;
-  
+
     font-family: $font-family;
     font-size: $font-size;
     line-height: $line-height;
     color: $text_color;
-  
+
     // iOS on orientation change
     text-size-adjust: 100%;
-  }
-  
-  img {
+}
+
+img {
     display: block;
     max-width: 100%;
     height: auto;
-  }
-
-.link {
-  @include reset-anchor;
-  position: relative;
-  font-weight: $font-regular;
-  color: $text_color;
-  font-size: 15px;
-
-  .link_text {
-    margin-left: 20px;
-  }
 }
 
+.link {
+    @include reset-anchor;
+    position: relative;
+    font-weight: $font-regular;
+    color: $text_color;
+    font-size: 15px;
+    transition: all 0.4s ease-in-out;
+
+    .link_text,
+    .arrow {
+        transition: 0.25s ease-in-out;
+    }
+
+    .arrow {
+      transition-delay: .1s;
+    }
+
+    .link_text {
+      transition-delay: .15s;
+        margin-left: 20px;
+    }
+
+    &:hover {
+        .arrow {
+            transform: translate(15px, -50%) rotate(-45deg);
+        }
+
+        .link_text {
+            margin-left: 35px;
+        }
+    }
+}
 
 .arrow {
-  border-right: 2px solid #3387bf;
-  border-bottom: 2px solid #3387bf;
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  transform: translateY(-50%) rotate(-45deg);
-  top: 50%;
-  left: 0;
+    border-right: 2px solid #3387bf;
+    border-bottom: 2px solid #3387bf;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    transform: translateY(-50%) rotate(-45deg);
+    top: 50%;
+    left: 0;
 }
 
 #page {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .disable_scroll {
-  overflow: hidden;
+    overflow: hidden;
 }

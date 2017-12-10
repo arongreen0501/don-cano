@@ -9,6 +9,7 @@
     }
     
     h1 {
+        margin-bottom: 10px;
         span {
             font-size: 30px;
             font-weight: $font-regular;
@@ -20,8 +21,36 @@
         font-weight: $font-light;
         width: 100%;
         max-width: 650px;
+        margin-bottom: 20px;
+        @include responsive-font(16, 28);
 
-        @include responsive-font(18, 28);
+        @include viewport(tablet) {
+            margin-bottom: 40px;
+        }
+
+    }
+
+    .btn-buy {
+        @include reset-anchor;
+
+        font-size: 16px;
+        font-weight: $font-medium;
+        text-transform: uppercase;
+        color: $dark-blue;
+        letter-spacing: 0.05em;
+        background: #fff;
+        padding: 8px 60px;
+        transition: .35s ease-in-out;
+
+        &:hover {
+            background: #cecece;
+        }
+
+       @include viewport(tablet) {
+            font-size: 20px;
+            padding: 8px 90px;
+        
+       } 
     }
 }
 
@@ -29,6 +58,12 @@
 
     .product_info {
         padding-top: 60px;
+
+        .info_description h3 {
+            color: $dark-blue;
+            font-weight: $font-regular;
+            font-size: 22px;
+        }
 
         .col-6 {
             @include grid-col(12);
@@ -67,6 +102,7 @@
                 height: 35px;
                 width: 35px;
                 display: inline-block;
+                border: 1px solid #d3d4d6;
             }
 
             .info_table {
@@ -75,6 +111,16 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
+
+                .convert_sizes {
+                    font-size: 13px;
+                    cursor: pointer;
+                    overflow: hidden;
+                    position: relative;
+                    padding-bottom: 3px;
+                    @include underline;
+                    
+                }
                 
                 .table {
                     border: 1px solid #d3d4d6;
@@ -118,6 +164,19 @@
         .qualities {
             display: flex;
             justify-content: space-between;
+
+            ul {
+                margin-left: 13px;
+            }
+
+            .purchase-link {
+                cursor: pointer;
+                text-decoration: none;
+                
+                p {
+                    font-size: 16px;
+                }
+            }
 
             ul {
                 padding: 0;
@@ -166,8 +225,12 @@
         .location_details {
             background: $dark_blue;
             color: #fff;
-            padding: 30px;
+            padding: 30px 60px;
             z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: column;
 
             .location_logo, .location_place {
                 text-align: center;
@@ -190,7 +253,8 @@
 
             .location_other {
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
+                text-align: center;
             }
 
             ul {
@@ -206,10 +270,16 @@
 
                 li {
                     @include reset-list;
+                    @include reset-anchor;
 
                     font-size: 14px;
                     font-weight: $font-regular;
+                    text-decoration: none;
                     color: #c3c3c3;
+                }
+
+                a {
+                    @include reset-anchor;
                 }
             }
         }

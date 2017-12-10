@@ -6,7 +6,8 @@
         padding-bottom: 40px;
 
         h2 {
-            font-size: 26px;
+            // font-size: 26px;
+            @include responsive-font(20, 26);
             margin-top: 10px;
             font-weight: $font-regular;
         }
@@ -38,7 +39,11 @@
             position: relative;
 
             .row {
-                padding: 100px 0;
+                padding: 40px 0;
+
+                @include viewport(tablet) {
+                    padding: 100px 0;
+                }
 
                 .center {
                     align-self: center;
@@ -48,6 +53,10 @@
 
         .bg_color {
             background: $light_gray;
+
+            @include viewport(tablet) {
+                margin-top: 80px;
+            }
 
             .row {
                 flex-direction: row-reverse;
@@ -68,6 +77,12 @@
         }
 
         .quote_block {
+            margin-bottom: 40px;
+
+            @include viewport(tablet) {
+                margin-bottom: 100px;
+            }
+
             .quote {
                 align-self: center;
                 padding-left: 33px;
@@ -81,6 +96,11 @@
 
         .full_height {
             padding: 20px 0;
+            // margin-top: 40px;
+
+            @include viewport(tablet) {
+                // margin-top: 80px;
+            }  
 
             h3, p {
                 color: $white;
@@ -108,7 +128,7 @@
 
 @include viewport (tablet) {
     .history {
-        .history_teaser, .history_final {
+        .history_teaser {
             text-align: center;
             padding-top: 120px;
             padding-bottom: 50px;

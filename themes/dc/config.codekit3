@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25504",
 "files": {
+	"\/.gitignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.gitignore",
+		"oF": 0
+		},
 	"\/404.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -26,6 +32,76 @@
 		"oA": 2,
 		"oAP": "\/comments.php",
 		"oF": 0
+		},
+	"\/favicon.ico": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/favicon.ico",
+		"oF": 0
+		},
+	"\/favicons\/android-chrome-48x48.png": {
+		"ft": 32768,
+		"iS": 1501,
+		"oA": 0,
+		"oAP": "\/favicons\/android-chrome-48x48.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/favicons\/apple-touch-icon.png": {
+		"ft": 32768,
+		"iS": 1811,
+		"oA": 0,
+		"oAP": "\/favicons\/apple-touch-icon.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/favicons\/browserconfig.xml": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/favicons\/browserconfig.xml",
+		"oF": 0
+		},
+	"\/favicons\/favicon-16x16.png": {
+		"ft": 32768,
+		"iS": 672,
+		"oA": 0,
+		"oAP": "\/favicons\/favicon-16x16.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/favicons\/favicon-32x32.png": {
+		"ft": 32768,
+		"iS": 1049,
+		"oA": 0,
+		"oAP": "\/favicons\/favicon-32x32.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/favicons\/manifest.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/favicons\/manifest-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/favicons\/mstile-150x150.png": {
+		"ft": 32768,
+		"iS": 1287,
+		"oA": 0,
+		"oAP": "\/favicons\/mstile-150x150.png",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/favicons\/safari-pinned-tab.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/favicons\/safari-pinned-tab.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"\/footer.php": {
 		"ft": 8192,
@@ -88,24 +164,6 @@
 		"oAP": "\/js\/customizer-min.js",
 		"oF": 0,
 		"sC": 1,
-		"tS": 0
-		},
-	"\/js\/google-maps-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/google-maps-min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/js\/google-maps.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/google-maps-min.js",
-		"oF": 0,
-		"sC": 0,
 		"tS": 0
 		},
 	"\/js\/navigation.js": {
@@ -350,6 +408,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/sass\/pages\/_error.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/sass\/pages\/_error.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/sass\/pages\/_history.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -416,7 +487,7 @@
 		"uL": 1
 		},
 	"\/sass\/style.scss": {
-		"aP": 0,
+		"aP": 1,
 		"bl": 1,
 		"dP": 10,
 		"dS": 0,
@@ -425,7 +496,7 @@
 		"oA": 0,
 		"oAP": "\/style.css",
 		"oF": 2,
-		"oS": 0,
+		"oS": 3,
 		"uL": 1
 		},
 	"\/sass\/templ\/_footer.scss": {

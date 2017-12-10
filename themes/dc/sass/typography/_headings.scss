@@ -9,14 +9,18 @@ h1 {
 	font-weight: $font-thin;
 	line-height: 1.1;
 
-	@include responsive-font(36, 80);
+	@include responsive-font(36, 64);
 }
 
 h2 {
 	font-size: 40px;
 	font-weight: $font-extra-light;
 	color: $dark-blue;
-	@include responsive-font(28, 40);
+	@include responsive-font(28, 32);
+}
+
+.no-margin {
+	margin: 0;
 }
 
 p {

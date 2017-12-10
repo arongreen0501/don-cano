@@ -35,7 +35,7 @@
 				</div>
 				<div class="footer_info">
 					<p><?php the_field('info_phone_number', 'option'); ?></p>
-					<p><?php the_field('info_mail', 'option'); ?></p>
+					<p><a href="mailto:doncano&commat;doncano&period;is">doncano@doncano.is</a></p>
 				</div>
 			</div>
 		</div>
@@ -43,6 +43,19 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Fira+Sans:100,200,300,400,500' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
 
 </body>
 </html>

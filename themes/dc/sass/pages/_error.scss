@@ -1,0 +1,34 @@
+.error404 {
+    header, #footer {
+        display: none;
+    }
+
+    .mobile_header {
+        display: block;
+    }
+
+    svg path {
+        fill: #000 !important;
+    }
+}
+
+.error-404 {
+    padding-top: 200px;
+
+    h1, h2 {
+        margin: 0;
+    }
+
+    h1 {
+        color: #101010;
+        @include responsive-font(48, 88);
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+
+    p {
+        margin-bottom: 60px;
+    }
+}
